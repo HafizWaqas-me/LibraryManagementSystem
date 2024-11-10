@@ -1,0 +1,21 @@
+<resources
+>
+    <style name="Base.Theme.LibraryManagementSystem" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:statusBarColor">@color/primacyColor</item>
+        <item name="colorButtonNormal">@color/primacyColor</item>
+
+    </style>
+
+    <style name="Theme.LibraryManagementSystem" parent="Base.Theme.LibraryManagementSystem" >
+
+
+    </style>
+
+    <style name="MyEditTextTheme">
+        <item name="colorControlNormal">@color/LightBlack</item>
+        <item name="colorControlActivated">@color/LightBlack</item>
+        <item name="colorControlHighlight">@color/LightBlack</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+</resources>

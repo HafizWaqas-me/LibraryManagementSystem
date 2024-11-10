@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress NavigationFile -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/loginFragments">
+
+    <fragment
+        android:id="@+id/loginFragments"
+        android:name="com.library.management.system.views.fragments.LoginFragments"
+        android:label="fragment_login_fragments"
+        tools:layout="@layout/fragment_login_fragments">
+        <action
+            android:id="@+id/action_loginFragments_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragments_to_adminDashContainer"
+            app:destination="@id/adminDashContainer" />
+        <action
+            android:id="@+id/action_loginFragments_to_userFragContainer"
+            app:destination="@id/userFragContainer" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.library.management.system.views.fragments.user.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragments"
+            app:destination="@id/loginFragments" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminSetting"
+        android:name="com.library.management.system.views.fragments.admin.AdminSetting"
+        android:label="fragment_admin_setting"
+        tools:layout="@layout/fragment_admin_setting">
+        <action
+            android:id="@+id/action_adminSetting_to_issueBookToUserFragment"
+            app:destination="@id/issueBookToUserFragment" />
+        <action
+            android:id="@+id/action_adminSetting_to_reIssueFragment"
+            app:destination="@id/reIssueFragment" />
+        <action
+            android:id="@+id/action_adminSetting_to_removeBookFragment"
+            app:destination="@id/removeBookFragment" />
+        <action
+            android:id="@+id/action_adminSetting_to_returnBookFromUserFragment"
+            app:destination="@id/returnBookFromUserFragment" />
+
+        <action
+            android:id="@+id/action_adminSetting_to_updateBookFragment"
+            app:destination="@id/updateBookFragment" />
+        <action
+            android:id="@+id/action_adminSetting_to_loginFragments"
+            app:destination="@id/loginFragments" />
+        <action
+            android:id="@+id/action_adminSetting_to_addNewBookFragment"
+            app:destination="@id/addNewBookFragment" />
+        <action
+            android:id="@+id/action_adminSetting_to_fineCollectFragment"
+            app:destination="@id/fineCollectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issueBookToUserFragment"
+        android:name="com.library.management.system.views.fragments.admin.IssueBookToUserFragment"
+        android:label="fragment_issue_book_to_user"
+        tools:layout="@layout/fragment_issue_book_to_user">
+        <action
+            android:id="@+id/action_issueBookToUserFragment_to_adminSetting"
+            app:destination="@id/adminSetting" />
+    </fragment>
+    <fragment
+        android:id="@+id/reIssueFragment"
+        android:name="com.library.management.system.views.fragments.admin.ReIssueFragment"
+        android:label="fragment_re_issue"
+        tools:layout="@layout/fragment_re_issue">
+        <action
+            android:id="@+id/action_reIssueFragment_to_adminSetting"
+            app:destination="@id/adminSetting" />
+    </fragment>
+    <fragment
+        android:id="@+id/removeBookFragment"
+        android:name="com.library.management.system.views.fragments.admin.RemoveBookFragment"
+        android:label="fragment_remove_book"
+        tools:layout="@layout/fragment_remove_book">
+        <action
+            android:id="@+id/action_removeBookFragment_to_adminSetting"
+            app:destination="@id/adminSetting" />
+    </fragment>
+    <fragment
+        android:id="@+id/returnBookFromUserFragment"
+        android:name="com.library.management.system.views.fragments.admin.ReturnBookFromUserFragment"
+        android:label="fragment_return_book_from_user"
+        tools:layout="@layout/fragment_return_book_from_user">
+        <action
+            android:id="@+id/action_returnBookFromUserFragment_to_adminSetting"
+            app:destination="@id/adminSetting" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateBookFragment"
+        android:name="com.library.management.system.views.fragments.admin.UpdateBookFragment"
+        android:label="fragment_update_book"
+        tools:layout="@layout/fragment_update_book">
+        <action
+            android:id="@+id/action_updateBookFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/userSettingFragment"
+        android:name="com.library.management.system.views.fragments.user.UserSettingFragment"
+        android:label="fragment_user_setting"
+        tools:layout="@layout/fragment_user_setting">
+
+        <action
+            android:id="@+id/action_userSettingFragment_to_loginFragments"
+            app:destination="@id/loginFragments" />
+        <action
+            android:id="@+id/action_userSettingFragment_to_userFragContainer2"
+            app:destination="@id/userFragContainer" />
+        <action
+            android:id="@+id/action_userSettingFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.library.management.system.views.fragments.admin.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_detailFragment_to_updateBookFragment"
+            app:destination="@id/updateBookFragment" />
+
+        <action
+            android:id="@+id/action_detailFragment_to_userFragContainer2"
+            app:destination="@id/userFragContainer" />
+        <action
+            android:id="@+id/action_detailFragment_to_adminDashContainer"
+            app:destination="@id/adminDashContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragContainer"
+        android:name="com.library.management.system.views.fragments.user.UserFragContainer"
+        android:label="fragment_user_frag_container"
+        tools:layout="@layout/fragment_user_frag_container">
+
+        <action
+            android:id="@+id/action_userFragContainer_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_userFragContainer_to_userSettingFragment2"
+            app:destination="@id/userSettingFragment" />
+        <action
+            android:id="@+id/action_userFragContainer_to_loginFragments"
+            app:destination="@id/loginFragments" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/adminDashContainer"
+        android:name="com.library.management.system.views.fragments.admin.AdminDashContainer"
+        android:label="fragment_admin_dash_container"
+        tools:layout="@layout/fragment_admin_dash_container">
+        <action
+            android:id="@+id/action_adminDashContainer_to_loginFragments"
+            app:destination="@id/loginFragments" />
+        <action
+            android:id="@+id/action_adminDashContainer_to_adminSetting"
+            app:destination="@id/adminSetting" />
+        <action
+            android:id="@+id/action_adminDashContainer_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_adminDashContainer_to_loginFragments2"
+            app:destination="@id/loginFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.library.management.system.views.fragments.user.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_userSettingFragment"
+            app:destination="@id/userSettingFragment" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_userFragContainer"
+            app:destination="@id/userFragContainer" />
+        <argument
+            android:name="user"
+            app:argType="com.library.management.system.model.SignUpUsersData" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewBookFragment"
+        android:name="com.library.management.system.views.fragments.admin.AddNewBookFragment"
+        android:label="fragment_add_new_book"
+        tools:layout="@layout/fragment_add_new_book" >
+        <action
+            android:id="@+id/action_addNewBookFragment_to_adminSetting"
+            app:destination="@id/adminSetting" />
+    </fragment>
+    <fragment
+        android:id="@+id/fineCollectFragment"
+        android:name="com.library.management.system.views.fragments.admin.FineCollectFragment"
+        android:label="fragment_fine_collect"
+        tools:layout="@layout/fragment_fine_collect" >
+        <action
+            android:id="@+id/action_fineCollectFragment_to_adminSetting"
+            app:destination="@id/adminSetting" />
+    </fragment>
+
+</navigation>
