@@ -16,6 +16,7 @@ val FCM_TOKEN = FirebaseMessaging.getInstance().token
 const val ISSUED_BOOK_CHANNEL = "ISSUED_BOOK_CHANNEL"
 const val NEW_BOOK_ADD_CHANNEL = "NEW_BOOK_ADD_CHANNE"
 const val EXPIRING_CHANNEL = "EXPIRY_BOOK_CHANNEL"
+const val GENERAL_CHANNEL = "EXPIRY_BOOK_CHANNEL"
 
 const val RETURN_CHANNEL = "RETURN_BOOK_CHANNEL"
 const val OVERDUE_CHANNEL = "0VERDUE_BOOK_CHANNEL"
@@ -44,5 +45,5 @@ const val LOGIN_EMAIL_BOOLEAN = "loginEmailBoolean"
 const val USER_ID = ""
 
 //Onesignal Notification Channel
-const val NEW_BOOK_ADD_CHANNEL_ONESIGNAL = "0e0dba72-1da9-4968-8582-dcdd770ed8b2"
+const val NEW_BOOK_ADD_CHANNEL_ONESIGNAL = "22c46a10-71cc-4480-8e32-510076f92149"
 const val ISSUED_BOOK_ADD_CHANNEL_ONESIGNAL = "f0dd7cb2-bac3-45e3-831a-e2c4ceff5431"

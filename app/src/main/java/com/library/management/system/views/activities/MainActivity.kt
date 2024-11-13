@@ -1,83 +1,59 @@
 package com.library.management.system.views.activities
 
 import android.app.NotificationChannel
+import android.app.NotificationChannelGroup
 import android.app.NotificationManager
-import android.os.Build
+import android.content.Context
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationManagerCompat
-import androidx.navigation.fragment.NavHostFragment
 import com.library.management.system.R
+import com.library.management.system.utils.AUTH
 import com.library.management.system.utils.EXPIRING_CHANNEL
-import com.library.management.system.utils.ISSUED_BOOK_CHANNEL
+import com.library.management.system.utils.GENERAL_CHANNEL
 import com.library.management.system.utils.NEW_BOOK_ADD_CHANNEL
 import com.library.management.system.utils.OVERDUE_CHANNEL
-import com.library.management.system.utils.RETURN_CHANNEL
+import com.onesignal.OneSignal
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-        registerNotificationChannels()
-
-    }
-
-
-    fun registerNotificationChannels() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            val notificationChannels = listOf(
-
-                NotificationChannel(
-                    ISSUED_BOOK_CHANNEL,
-                    "Issued Book Notification",
-                    NotificationManager.IMPORTANCE_HIGH
-                ).apply {
-                    description = "Notifies User when New Book Issued to them"
-                },
-                NotificationChannel(
-                    EXPIRING_CHANNEL,
-                    "Expired Book Notification",
-                    NotificationManager.IMPORTANCE_DEFAULT
-                ).apply {
-                    description = "Warns users 24 hours before a book is due for return"
-                },
-                NotificationChannel(
-                    OVERDUE_CHANNEL,
-                    "Overdue Fine Notification",
-                    NotificationManager.IMPORTANCE_HIGH
-                ).apply {
-                    description = "Reminds users of overdue fines daily until the book is returned"
-                },
-                NotificationChannel(
-                    RETURN_CHANNEL,
-                    "Return Book Notification",
-                    NotificationManager.IMPORTANCE_DEFAULT
-                ).apply {
-                    description =
-                        "Notifies User when New Book Issued to themNotifies User when New Book Issued to them"
-                },
-
-                NotificationChannel(
-                    NEW_BOOK_ADD_CHANNEL,
-                    "New Book Notification",
-                    NotificationManager.IMPORTANCE_HIGH
-                ).apply {
-                    description =
-                        "Notifies users about new additions to the library"
-                },
-
-                )
-            val notificationManager = NotificationManagerCompat.from(this)
-            notificationChannels.forEach {
-                notificationManager.createNotificationChannel(it)
-            }
+        if (AUTH.currentUser != null) {
+            OneSignal.User.addEmail(AUTH.currentUser!!.email.toString())
 
         }
+
+        registerNotificaitonChannels()
     }
 
+    fun registerNotificaitonChannels() {
+
+        val notificationChannels = listOf(
+            NotificationChannel(
+                NEW_BOOK_ADD_CHANNEL,
+                "New Books",
+                NotificationManager.IMPORTANCE_HIGH,
+            ),
+            NotificationChannel(
+                GENERAL_CHANNEL,
+                "General Notifications",
+                NotificationManager.IMPORTANCE_DEFAULT
+            ),
+            NotificationChannel(
+                EXPIRING_CHANNEL,
+                "Expired Books",
+                NotificationManager.IMPORTANCE_HIGH
+            ),
+            NotificationChannel(
+                OVERDUE_CHANNEL,
+                "OVERDUE Books",
+                NotificationManager.IMPORTANCE_HIGH
+            ),
+        )
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannelGroup(NotificationChannelGroup("OFFLINE","OFFLINE"))
+        notificationManager.createNotificationChannels(notificationChannels)
+    }
 }

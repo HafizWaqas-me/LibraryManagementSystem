@@ -69,11 +69,9 @@ class UserDashBoardVM : ViewModel() {
                     _userId.value = userId?.toInt()
                     // Save and login with user ID
                     userId?.let {
-                        OneSignal.login(it.toString())
                         fetchUserIssuedBooks(userId.toString())
                         SharedPrefUtil.setUserId(USER_ID, userId.toInt())
                         Log.e("UserDashBoardVM", "Pref: ${SharedPrefUtil.getUserId(USER_ID)}")
-
                     }
                 } else {
                     Log.e("UserDashBoardVM", "No user found with email: $email")
@@ -84,6 +82,7 @@ class UserDashBoardVM : ViewModel() {
     }
 
     private fun fetchUserIssuedBooks(userId: String) {
+        OneSignal.login(userId)
 
         ISSUED_BOOK_REF.child(userId)
             .orderByChild(STATUS).equalTo(true)
@@ -137,7 +136,6 @@ class UserDashBoardVM : ViewModel() {
         _expiredBooks.value = expiredBookCount
     }
 
-    // Helper function to calculate days difference
     private fun calculateDifferenceInDays(expiryDate: String): Int {
         val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         val returnDate: Date? = dateFormat.parse(expiryDate)

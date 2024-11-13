@@ -122,11 +122,7 @@ class LoginFragments : Fragment(), View.OnClickListener {
                                     if (allEmails != null) {
                                         if (allEmails.contains(viewModel.email)) {
                                             SharedPrefUtil.setLoginBoolean(IS_ADMIN, true)
-                                            Log.d(
-                                                "LoginFragg", "Shared prefs ${
-                                                    SharedPrefUtil.getLoginBoolean(IS_ADMIN)
-                                                }"
-                                            )
+
                                             findNavController().navigate(
                                                 LoginFragmentsDirections.actionLoginFragmentsToAdminDashContainer()
                                             )

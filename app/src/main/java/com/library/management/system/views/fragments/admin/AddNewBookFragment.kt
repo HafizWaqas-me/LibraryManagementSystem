@@ -21,8 +21,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.library.management.system.R
 import com.library.management.system.databinding.FragmentAddNewBookBinding
 import com.library.management.system.model.Books
+import com.library.management.system.notifications.NotificationsFun
 import com.library.management.system.utils.ALL_BOOK_REF
-import com.library.management.system.utils.AppUtils
 import com.library.management.system.utils.BOOKS_CATEGORIES
 import com.library.management.system.viewmodels.AddBookVM
 import java.util.UUID
@@ -166,7 +166,7 @@ class AddNewBookFragment : Fragment(), View.OnClickListener {
 
                     viewModel.imgUrl = downloadUrl.toString()
                     Log.d("URLL", "$downloadUrl")
-                   addNewBook()
+                    addNewBook()
                 }
             }
         } ?: run {
@@ -184,12 +184,13 @@ class AddNewBookFragment : Fragment(), View.OnClickListener {
                 "Book Added",
                 Toast.LENGTH_SHORT
             ).show()
-            AppUtils.showNotificationEveryOne(
+            NotificationsFun.showNotificationEveryOne(
                 context = requireContext(),
-                title = viewModel.title,
-                bookId = viewModel.bookId.toString(),
+                headings = "New Book Added",
+                title = "New Book Added in Library BookId is \"${viewModel.bookId}\"",
                 imgUrl = viewModel.imgUrl
             )
+
 
             progressDisable()
         }.addOnFailureListener {

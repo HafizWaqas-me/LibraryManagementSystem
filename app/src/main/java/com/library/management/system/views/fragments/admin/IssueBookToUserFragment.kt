@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.library.management.system.R
 import com.library.management.system.databinding.FragmentIssueBookToUserBinding
+import com.library.management.system.notifications.NotificationsFun
 import com.library.management.system.utils.ALL_BOOK_REF
 import com.library.management.system.utils.ISSUED_BOOK_REF
 import com.library.management.system.viewmodels.IssueBookVM
@@ -25,7 +26,6 @@ class IssueBookToUserFragment : Fragment(), View.OnClickListener {
     var _binding: FragmentIssueBookToUserBinding? = null
     val binding get() = _binding
     val viewModel: IssueBookVM by viewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -190,7 +190,14 @@ class IssueBookToUserFragment : Fragment(), View.OnClickListener {
                             ).show()
                             hideProgress()
 
-                            viewModel.sendNotificationToExternalUser(context)
+                            NotificationsFun.sendNotificationToExternalUser(
+                                context = context,
+                                headings = "Book Issued to User: ${viewModel.userId}",
+                                userId = viewModel.userId,
+                                bookId = viewModel.bookId,
+                                title = "Book \"${viewModel.title}\" Issued to you",
+                                imgUrl = viewModel.imgUrl
+                                )
 
                         }
                         .addOnFailureListener { e ->

@@ -1,12 +1,12 @@
-package com.library.management.system.utils
+package com.library.management.system.notifications
 
 import android.app.NotificationManager
 import android.content.Context
-import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.library.management.system.R
+import com.library.management.system.utils.OVERDUE_CHANNEL
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -43,21 +43,18 @@ class NotificationWorker(
     }
 
     fun showFineNotification(title: String, message: String, notificationId: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            val notification = NotificationCompat.Builder(applicationContext, OVERDUE_CHANNEL)
-                .setContentTitle(title)
-                .setContentText(message)
-                .setSmallIcon(R.drawable.ic_book)
-                .setPriority(NotificationCompat.PRIORITY_HIGH) // Ensures heads-up on supported devices
-                .setStyle(NotificationCompat.BigTextStyle().bigText("Your book is overdue!"))
-                .setAutoCancel(true)
-                .build()
+        val notification = NotificationCompat.Builder(applicationContext, OVERDUE_CHANNEL)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setSmallIcon(R.drawable.ic_book)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(message))
+            .setAutoCancel(true)
+            .build()
 
-            val notificationManager: NotificationManager =
-                applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(notificationId, notification)
-        }
+        val notificationManager: NotificationManager =
+            applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(notificationId, notification)
     }
-
 }
