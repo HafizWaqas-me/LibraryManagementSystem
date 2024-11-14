@@ -15,20 +15,6 @@ Welcome to the **Library Management System**! This project provides a comprehens
 9. [License](#license)
 
 ---
-![Admin Controle Pannel](https://github.com/user-attachments/assets/ed57aba7-77ac-4631-8759-42ec97d86db5)
-![Add New book Screen](https://github.com/user-attachments/assets/22d0bc6d-6e49-4679-a7d2-37ab8b3661be)
-![User Profile](https://github.com/user-attachments/assets/a177ed28-b32e-4e60-9d43-e7b7accc8a12)
-![User DashBoard with Issued book to him](https://github.com/user-attachments/assets/cebd652b-24bb-478f-a70e-c4afda2ec8c1)
-![Return Book Screnn](https://github.com/user-attachments/assets/673f7969-b72a-46e2-874c-bea4f2c6f852)
-![Re-Issue book to User](https://github.com/user-attachments/assets/a37c47e1-962a-452f-aa0c-1e438c8777e3)
-![Notification Tray](https://github.com/user-attachments/assets/56bd6861-6d9e-4634-b733-7ff3fa725abd)
-![New Book Notification in Notification Tray](https://github.com/user-attachments/assets/d3ab2572-3ee6-4723-ab77-76626c198ccd)
-![Issued Books list for admin](https://github.com/user-attachments/assets/88b4ecee-95c2-4342-8949-c4e3d6b8919d)
-![Issue book to any user with it's userId](https://github.com/user-attachments/assets/c480d3c6-33d4-4409-9ea1-568c5e12581a)
-![HeadsUp Notification of New Added](https://github.com/user-attachments/assets/95315855-6e48-4420-b75e-5c4340c49234)
-![Check Fine if Book expired](https://github.com/user-attachments/assets/1ce3d2d3-4849-44c2-89a2-72690bb4db35)
-![All Books available in Library](https://github.com/user-attachments/assets/23bb6a1c-2b7b-4a0d-badd-f335faa39dd3)
-
 ## ✨ Features
 
 ### User Dashboard
