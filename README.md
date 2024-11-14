@@ -2,7 +2,7 @@
 
 Welcome to the **Library Management System**! This project provides a comprehensive solution for managing a library, offering both a **user-friendly interface** for patrons and **administrative tools** for library staff. Users can browse and view books, manage their profiles, and access issued books, while admins can perform tasks like adding books, issuing and returning books, and managing fines for overdue items. This project also integrates **OneSignal** for notifications to keep users updated on new books, due dates, and other important events.
 
-[![download](https://github.com/user-attachments/assets/2d46f54c-b870-4a8a-998c-e91294af4de0)(https://github.com/HafizWaqas-me/LibraryManagementSystem/releases/download/FinalRelease/Library.Management.System.apk)]
+[![download Demo Apk](https://github.com/user-attachments/assets/2d46f54c-b870-4a8a-998c-e91294af4de0)](https://github.com/HafizWaqas-me/LibraryManagementSystem/releases/download/FinalRelease/Library.Management.System.apk)
 
 
 ## 📝 Table of Contents
